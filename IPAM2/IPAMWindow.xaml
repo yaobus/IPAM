@@ -1,0 +1,108 @@
+﻿<Window x:Class="IPAM2.IPAMWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:IPAM2"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="16"
+        FontFamily="SimSun"
+
+        Title="IPAMWindow" MaxHeight="1080" MaxWidth="1920" Height="900" Width="1800" WindowStartupLocation="CenterScreen"  MouseDown="Window_MouseDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="196*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Ip" Height="40" Width="40" Foreground="DodgerBlue"/>
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="DodgerBlue"
+                Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                Text="Management" />
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+
+
+
+
+            <StackPanel
+            Grid.Column="1"
+            Margin="0,15,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+               
+            <RadioButton
+                x:Name="wdgl"
+                Click="wdgl_Click"
+                Margin="4"
+                Content="网段总览"
+                IsChecked="True"
+                Style="{StaticResource MaterialDesignTabRadioButtonBottom}" />
+                
+                
+            <RadioButton
+                x:Name="dzfp"
+                Click="dzfp_Click"
+                Margin="4"
+                Content="新增网段"
+                IsChecked="False"
+                IsEnabled="True"
+                Style="{StaticResource MaterialDesignTabRadioButtonBottom}" />
+                
+                
+            <RadioButton
+                Margin="4"
+                Content="地址分配"
+                IsChecked="False"
+                IsEnabled="True"
+                Style="{StaticResource MaterialDesignTabRadioButtonBottom}" />
+            </StackPanel>
+
+            
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button
+                Margin="0,0,5,0"
+                Content="设置"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignFlatSecondaryDarkButton}"
+                ToolTip="MaterialDesignFlatButton" />
+
+            <Button
+                Margin="0,0,20,0"
+                Content="EXIT"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignFlatSecondaryDarkButton}"
+                Click="Button_Click"
+                ToolTip="MaterialDesignFlatButton" />
+
+
+        </StackPanel>
+
+        <StackPanel x:Name="MainPlane"  Grid.Row="1" Grid.ColumnSpan="3">
+            
+            
+            
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,301 @@
+﻿<UserControl x:Class="IPAM2.UserPlan.IpList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:IPAM2.UserPlan"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="16"
+             FontFamily="SimSun"
+             Loaded="IpList_OnLoaded"
+             d:DesignHeight="800" d:DesignWidth="1600">
+    <Grid VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+
+
+            <TextBlock Margin="5">
+                        <Hyperlink
+                        IsEnabled="False"
+                        
+                        Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                        IP段列表：
+                    </Hyperlink>
+            </TextBlock>
+
+            <ListView
+        
+         Margin="5,40,0,0"
+         x:Name="IpListView"
+         BorderThickness="0"
+         SelectionChanged="IpListView_OnSelectionChanged"
+         Style="{DynamicResource MaterialDesignListView}" ScrollViewer.VerticalScrollBarVisibility="Auto" MouseDown="IpListView_MouseDown" >
+
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn
+                         
+                     DisplayMemberBinding="{Binding IpSegment}"
+                     Header="网段IP" />
+                        <GridViewColumn
+                     DisplayMemberBinding="{Binding Mask}"
+                     Header="子网掩码" />
+                        <GridViewColumn
+                     DisplayMemberBinding="{Binding Description}"
+                     Header="网段说明" />
+                        <GridViewColumn
+                 DisplayMemberBinding="{Binding Notes}"
+                 
+                 Header="网段备注" Width="0" />
+                        <GridViewColumn
+                 DisplayMemberBinding="{Binding Allocation}"
+                 Header="网段分配" Width="0" />
+                        <GridViewColumn
+                 DisplayMemberBinding="{Binding Id}"
+                 Header="网段id" Width="0" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <TextBox Visibility="Hidden" Margin="0,500,0,0" x:Name="TEMPTEXTBOX" TextWrapping="Wrap">
+                
+                
+                
+                
+            </TextBox>
+
+        </Grid>
+
+        <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+
+
+            <StackPanel >
+
+                <TextBlock Margin="5">
+                        <Hyperlink
+                        IsEnabled="False"
+                        
+                        Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                        IP地址池：
+                    </Hyperlink>
+                </TextBlock>
+
+
+               
+
+
+                <StackPanel Grid.Row="0" Height="30" Orientation="Horizontal" VerticalAlignment="Center">
+
+                    
+                    
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                       
+                        <TextBlock  Width="20" Margin="5" TextAlignment="Center" Height="20" Background="DarkGray"/>
+                        <TextBlock VerticalAlignment="Center" Margin="0">
+                            <Hyperlink
+                          
+                            IsEnabled="False"  
+                             Foreground="DarkGray"
+                            Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                            网段地址
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <ProgressBar Orientation="Vertical" Value="100" Height="1" Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" >
+
+                        <TextBlock Width="20" Margin="5" TextAlignment="Center" Height="20"  Background="LightSeaGreen"/>
+                        <TextBlock VerticalAlignment="Center" Margin="0">
+                            <Hyperlink
+                            IsEnabled="False"   
+                            Foreground="LightSeaGreen"    
+                            Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                            保留地址
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <ProgressBar Orientation="Vertical" Value="100" Height="1" Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" >
+
+                        <TextBlock Width="20" Margin="5" TextAlignment="Center" Height="20"  Background="AliceBlue"/>
+                        <TextBlock VerticalAlignment="Center" Margin="0">
+                            <Hyperlink
+                            IsEnabled="False"    
+                            Style="{StaticResource MaterialDesignHeadline5Hyperlink}" Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+                            未分配地址
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <ProgressBar Orientation="Vertical" Value="100" Height="1" Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" >
+
+                        <TextBlock Width="20" Margin="5" TextAlignment="Center" Height="20"  Background="Yellow"/>
+                        <TextBlock VerticalAlignment="Center" Margin="0" Foreground="Yellow">
+                            <Hyperlink
+                            IsEnabled="False"   
+                            Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"    
+                            Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                            已锁定地址
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <ProgressBar Orientation="Vertical" Value="100" Height="1" Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" >
+
+                        <TextBlock Width="20" Margin="5" TextAlignment="Center" Height="20"  Background="OrangeRed"/>
+                        <TextBlock VerticalAlignment="Center" Margin="0">
+                            <Hyperlink
+                            IsEnabled="False"   
+                            Foreground="OrangeRed"    
+                            Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                            已分配地址
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <ProgressBar Orientation="Vertical" Value="100" Height="1" Foreground="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" >
+
+                        <TextBlock Width="20" Margin="5" TextAlignment="Center" Height="20"  Background="Gray"/>
+                        <TextBlock VerticalAlignment="Center" Margin="0">
+                            <Hyperlink
+                            IsEnabled="False"   
+                            Foreground="Gray"    
+                            Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                            广播地址
+                            </Hyperlink>
+                        </TextBlock>
+
+                        <ProgressBar Orientation="Vertical" Value="100" Height="1" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" />
+
+                    </StackPanel>
+
+                </StackPanel>
+
+
+                <WrapPanel Margin="0,5,0,0" x:Name="IpMapPlan"  />
+
+
+            </StackPanel>
+
+
+
+        </Grid>
+
+        <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <StackPanel  Orientation="Vertical" VerticalAlignment="Top">
+
+                <TextBlock Margin="5">
+                        <Hyperlink
+                        IsEnabled="False"
+                        
+                        Style="{StaticResource MaterialDesignHeadline5Hyperlink}">
+                        IP地址分配：
+                    </Hyperlink>
+                </TextBlock>
+
+
+
+
+
+
+
+
+                <TextBox
+                    x:Name="SelectIpNum"
+                    Margin="5"
+                    IsEnabled="False"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="已选择IP数量"
+                    AcceptsReturn="True"
+                    Text="0"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                    TextWrapping="Wrap" />
+
+                <TextBox
+                    x:Name="IpUse"
+                    Margin="5"
+                    
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="IP地址用途"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                    TextWrapping="Wrap" />
+
+                <TextBox
+                    x:Name="IpUser"
+                    Margin="5"
+                    
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="IP地址使用人"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                    TextWrapping="Wrap" />
+
+
+
+
+                <Button
+                       Margin="5"
+                  
+                       Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                       BorderThickness="0"
+                       x:Name="AddButton"
+                       Click="AddButton_Click"
+                       materialDesign:RippleAssist.Feedback="#DD000000"
+                       Content="保存分配计划" />
+
+                <ScrollViewer  Margin="0" VerticalScrollBarVisibility="Auto" >
+                   
+                    <WrapPanel  Margin="0,5,0,0"  x:Name="IpSelectPlan" />
+
+                </ScrollViewer>
+
+            </StackPanel>
+
+
+
+
+        </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>

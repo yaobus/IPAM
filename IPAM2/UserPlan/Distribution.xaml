@@ -1,0 +1,115 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:IPAM2.UserPlan"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="IPAM2.UserPlan.Distribution"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="16"
+             FontFamily="SimSun"
+
+             d:DesignHeight="600" d:DesignWidth="1200">
+    <Grid   >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+
+
+        <!--<StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" Height="0"/>
+        <DockPanel Grid.Column="1" LastChildFill="False" Grid.RowSpan="2"/>-->
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+
+            <GroupBox
+                Margin="0"
+                BorderThickness="0">
+                <StackPanel Orientation="Horizontal"  >
+                    <materialDesign:PackIcon Kind="Ip" Height="40" Width="40" />
+                    <TextBlock
+                        Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                        Text="网段列表" />
+
+                </StackPanel>
+            </GroupBox>
+
+
+
+
+
+
+
+            <ListView
+           
+                Margin="0,5,0,0"
+                x:Name="IpListView"
+                BorderThickness="0"
+                SelectionChanged="IpListView_OnSelectionChanged"
+                Style="{DynamicResource MaterialDesignListView}" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn
+                            
+                            DisplayMemberBinding="{Binding IpSegment}"
+                            Header="网段IP" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Mask}"
+                            Header="子网掩码" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Description}"
+                            Header="网段说明" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Notes}"
+                    
+                            Header="网段备注" Width="0" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Allocation}"
+                            Header="网段分配" Width="0" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Id}"
+                            Header="网段id" Width="0" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+
+            <WrapPanel x:Name="IpMapPlan"  />
+
+        </StackPanel>
+
+
+
+
+
+
+
+
+        <GroupBox  Grid.Column="1" BorderThickness="0"  Grid.RowSpan="2">
+
+          
+
+        </GroupBox>
+
+
+
+
+
+
+    </Grid>
+</UserControl>
