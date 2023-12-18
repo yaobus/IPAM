@@ -141,13 +141,31 @@ namespace IPAM2
                         //释放连接资源
                         reader.Dispose();
 
-                        Window mainWindow = new IPAMWindow();
+                        if (UserNameBox.Text == "Administrator")
+                        {
+                            Window mainWindow = new Manage();
+                            var window = Window.GetWindow(this);//关闭父窗体
+                            window?.Close();
 
-                        var window = Window.GetWindow(this);//关闭父窗体
-                        window?.Close();
+                            //打开新窗口
+                            mainWindow.Show();
+                        }
+                        else
+                        {
+                            Window mainWindow = new IPAMWindow();
+                            var window = Window.GetWindow(this);//关闭父窗体
+                            window?.Close();
 
-                        //打开新窗口
-                        mainWindow.Show();
+                            //打开新窗口
+                            mainWindow.Show();
+
+                        }
+
+
+
+                       
+
+
 
 
 
@@ -175,5 +193,12 @@ namespace IPAM2
 
         }
 
+        private void RregisterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
+
+        }
     }
 }

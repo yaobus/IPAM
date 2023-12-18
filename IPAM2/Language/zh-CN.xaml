@@ -15,6 +15,12 @@
     <s:String x:Key="LoginPW">密码</s:String>
 
     <s:String x:Key="LoginLogin">登录</s:String>
+    <s:String x:Key="Rregister">注册</s:String>
+
+
     <s:String x:Key="LoginTitle">IPAM系统登录</s:String>
+
+    <s:String x:Key="ManageTitle">管理员页面</s:String>
+
 
 </ResourceDictionary>

@@ -161,6 +161,9 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Manage.xaml.cs">
+      <DependentUpon>Manage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserPlan\Distribution.xaml.cs">
       <DependentUpon>Distribution.xaml</DependentUpon>
     </Compile>
@@ -174,10 +177,6 @@
       <DependentUpon>ServerSettingPlan.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewMode\ViewMode.cs" />
-    <Page Include="IPAM.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="IPAMWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,13 +199,14 @@
     </Compile>
     <Compile Include="DbConnect\DbConnect.cs" />
     <Compile Include="Globalvariable\GlobalVariable.cs" />
-    <Compile Include="IPAM.xaml.cs">
-      <DependentUpon>IPAM.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Manage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserPlan\Distribution.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -49,7 +49,7 @@
                 </StackPanel>
             </Grid>
             <Grid  Width="600" Margin="0,50,0,80">
-                <StackPanel Height="180" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Height="240" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBox
                                 Margin="5"
                                 x:Name="UserNameBox"
@@ -68,12 +68,14 @@
                                 VerticalAlignment="Top"
                                 Password="5896321470"
                                materialDesign:HintAssist.Hint="{DynamicResource LoginPW}" />
+                    
                     <!--<ComboBox
                                 Margin="5"
                                 x:Name="UserTypeCombobox"
-                                IsEnabled="False"
+                                IsEnabled="True"
                                 Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                 materialDesign:HintAssist.Hint="{DynamicResource LoginRole}"/>-->
+                   
                     <Button
                                 x:Name="LoginButton"
                                 Margin="5"
@@ -82,10 +84,25 @@
                                 ToolTip="点击以登陆系统" 
                                 Click="LoginButton_OnClick">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
-                            <materialDesign:PackIcon Kind="Login" Width="20" Height="30"></materialDesign:PackIcon>
+                            <materialDesign:PackIcon Margin="0,0,10,0" Kind="Login" Width="20" Height="30"></materialDesign:PackIcon>
                             <TextBlock Text="{DynamicResource LoginLogin}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
                         </StackPanel>
                     </Button>
+                    
+                    <Button
+                                x:Name="RregisterButton"
+                                Margin="5"
+                                Height="50"
+                                Style="{StaticResource MaterialDesignOutlinedButton}"
+                                ToolTip="点击以注册新用户" 
+                                Click="RregisterButton_Click" 
+                                >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <materialDesign:PackIcon Margin="0,0,10,0" Kind="Register"  Width="20" Height="30"></materialDesign:PackIcon>
+                            <TextBlock Text="{DynamicResource Rregister}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+                    </Button>
+
                     <StackPanel Height="0" Width="400" Margin="0,10,0,0" HorizontalAlignment="Stretch" Orientation="Horizontal" />
                 </StackPanel>
             </Grid>
